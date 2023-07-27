@@ -22,6 +22,18 @@ from tensorflow.keras.optimizers import Adam
 from hypopt import GridSearch
 import keras
 
+### Classification report
+
+# predict probabilities for test set
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import precision_score
+from sklearn.metrics import recall_score
+from sklearn.metrics import f1_score
+from sklearn.metrics import cohen_kappa_score
+from sklearn.metrics import roc_auc_score
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import classification_report
+
 def focal_loss(gamma=2., alpha= 2):
 
     gamma = float(gamma)
@@ -122,17 +134,7 @@ model = grid
 # dummy_test = np_utils.to_categorical(y_test)
 
 
-### Classification report
 
-# predict probabilities for test set
-from sklearn.metrics import accuracy_score
-from sklearn.metrics import precision_score
-from sklearn.metrics import recall_score
-from sklearn.metrics import f1_score
-from sklearn.metrics import cohen_kappa_score
-from sklearn.metrics import roc_auc_score
-from sklearn.metrics import confusion_matrix
-from sklearn.metrics import classification_report
 
 yhat_probs = model.predict(test)
 print(yhat_probs)
